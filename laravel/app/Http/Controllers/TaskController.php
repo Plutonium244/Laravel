@@ -59,9 +59,13 @@ class TaskController extends Controller
 	* @return Response
 	*/
 	Route::delete('/task/{task}', 'TaskController@destroy');
-	
+
 	public function destroy(Request $request, Task $task)
 	{
-	    //
+	    $this->authorize('destroy', $task);
+	    
+	    $task->delete();
+
+    return redirect('/tasks');
 	}
 }
