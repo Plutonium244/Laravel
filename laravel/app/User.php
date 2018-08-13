@@ -27,7 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    
+
+    Route::get('/', function () {
+    return view('welcome');
+    });
+
     /**
      * Получить все задачи пользователя.
      */
